@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import{ EmployeeService } from "../shared/employee.service";
+import { NgForm } from '@angular/forms';
+
 @Component({
   selector: 'app-employee',
   templateUrl: './employee.component.html',
@@ -7,9 +10,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmployeeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _employeeService: EmployeeService) { }
 
   ngOnInit() {
+    this.resetForm();
+  }
+
+  onSubmit(employeeForm: NgForm) {
+
+  }
+
+  // ? -> optional parameter
+  resetForm(employeeForm?: NgForm) {
+
+    if(employeeForm != null)
+      employeeForm.reset();
+
+    this._employeeService.selectedEmployee = {
+      $key: null,
+      name: "",
+      position: "",
+      office: "",
+      salary: 0
+
+    }
   }
 
 }

@@ -21,7 +21,10 @@ export class EmployeeComponent implements OnInit {
   }
 
   onSubmit(employeeForm: NgForm) {
-    this._employeeService.insertEmployee(employeeForm.value);
+    if(employeeForm.value.$key == null) 
+      this._employeeService.insertEmployee(employeeForm.value);
+    else
+      this._employeeService.updateEmployee(employeeForm.value);
     this.resetForm(employeeForm);
     this._toastrService.success("Submitted Successfully", "Employee Register");
   }
@@ -38,7 +41,6 @@ export class EmployeeComponent implements OnInit {
       position: "",
       office: "",
       salary: 0
-
     }
   }
 

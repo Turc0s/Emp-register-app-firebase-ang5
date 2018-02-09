@@ -27,4 +27,12 @@ export class EmployeeListComponent implements OnInit {
     });
   }
 
+  onEdit(emp: Employee) {
+
+    // this._employeeService.selectedEmployee = emp;
+    this._employeeService.selectedEmployee = Object.assign({}, emp);
+
+
+  }
+
 }

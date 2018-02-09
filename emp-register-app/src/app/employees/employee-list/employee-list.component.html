@@ -1,10 +1,14 @@
-<h6 class="text-center">Employee Register</h6>
+<h4 class="text-center">Employee Register List</h4>
+<br>
 <table class="table table-sm table-hover">
+  <tr *ngIf="employeeList.length == 0">
+    <td class="text-center" colspan="3">No Data.</td>
+  </tr>
   <tr *ngFor="let employee of employeeList">
     <td>{{ employee.name }}</td>
     <td>{{ employee.position }}</td>
     <td>
-      <a class="btn">
+      <a class="btn"(click)="onEdit(employee)">
         <i class="fa fa-pencil-square-o"></i>
       </a>
       <a class="btn">

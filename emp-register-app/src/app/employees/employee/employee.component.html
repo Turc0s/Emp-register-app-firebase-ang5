@@ -5,21 +5,25 @@
     class="form-control"
     name="name"
     #name="ngModel"
-    [(ngModel)]="_employeeService.selectedEmployee.name">
+    [(ngModel)]="_employeeService.selectedEmployee.name"
+    placeholder="Full Name"
+    required>
 
     <label>Position</label>
     <input 
     class="form-control"
     name="position"
     #name="ngModel"
-    [(ngModel)]="_employeeService.selectedEmployee.position">
+    [(ngModel)]="_employeeService.selectedEmployee.position"
+    placeholder="Position">
 
     <label>Office</label>
     <input 
     class="form-control"
     name="office"
     #name="ngModel"
-    [(ngModel)]="_employeeService.selectedEmployee.office">
+    [(ngModel)]="_employeeService.selectedEmployee.office"
+    placeholder="Office">
 
     <label>Salary</label>
     <div class="input-group">
@@ -30,11 +34,12 @@
       class="form-control"
       name="salary"
       #name="ngModel"
-      [(ngModel)]="_employeeService.selectedEmployee.salary">
+      [(ngModel)]="_employeeService.selectedEmployee.salary"
+      placeholder="Salary">
     </div>
   </div>
   <div class="form-group">
-    <button class="btn btn-default" type="submit">
+    <button class="btn btn-default" type="submit" [disabled]="!employeeForm.valid">
       <i class="fa fa-floppy-o"></i>
       Submit</button>
     <button class="btn btn-default" type="button" (click)="resetForm(employeeForm)">
